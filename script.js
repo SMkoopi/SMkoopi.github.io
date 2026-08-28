@@ -1,19 +1,19 @@
 const images = [
     // Amber
-    { src: "bilder/SMkoopi-Seite/amber/bild1.jpg", category: "amber", isChara: true, title: "Amber 1" },
-    { src: "bilder/SMkoopi-Seite/amber/bild2.jpg", category: "amber", isChara: true, title: "Amber 2" },
+    { src: "bilder/SMkoopi-Seite/amber/bild1.png", category: "amber", isChara: true, title: "Amber 1" },
+    { src: "bilder/SMkoopi-Seite/amber/bild2.png", category: "amber", isChara: true, title: "Amber 2" },
 
     // Violet
-    { src: "bilder/SMkoopi-Seite/violet/bild1.jpg", category: "violet", isChara: true, title: "Violet 1" },
+    { src: "bilder/SMkoopi-Seite/violet/bild1.png", category: "violet", isChara: true, title: "Violet 1" },
 
     // Vanessa
-    { src: "bilder/SMkoopi-Seite/vanessa/bild1.jpg", category: "vanessa", isChara: true, title: "Vanessa 1" },
+    { src: "bilder/SMkoopi-Seite/vanessa/bild1.png", category: "vanessa", isChara: true, title: "Vanessa 1" },
 
     // Lena
-    { src: "bilder/SMkoopi-Seite/lena/bild1.jpg", category: "lena", isChara: true, title: "Lena 1" },
+    { src: "bilder/SMkoopi-Seite/lena/bild1.png", category: "lena", isChara: true, title: "Lena 1" },
 
     // Drawings
-    { src: "bilder/SMkoopi-Seite/drawings/skizze1.jpg", category: "drawings", isChara: false, title: "Skizze 1" }
+    { src: "bilder/SMkoopi-Seite/drawings/skizze1.png", category: "drawings", isChara: false, title: "Skizze 1" }
 ];
 
 function confirmAge(isAdult) {
