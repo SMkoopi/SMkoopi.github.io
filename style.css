@@ -1,25 +1,177 @@
-/* Unterkategorien Leiste */
-.sub-filter-buttons {
+* { box-sizing: border-box; }
+
+body {
+    background-color: #060709;
+    color: #f2f4f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Profil Banner & Header */
+.profile-header {
+    position: relative;
+    background-color: #121418;
+    margin-bottom: 20px;
+}
+
+.banner-img {
+    width: 100%;
+    height: 200px;
+    background-color: #1e2229;
+    background-image: url('bilder/banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-info {
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 10px;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 15px 30px;
+    background: #0b0e12;
+    border-bottom: 1px solid #1f232b;
 }
 
-.sub-btn {
-    background-color: #1a1a1a;
-    color: #bbb;
-    border: 1px solid #333;
-    padding: 5px 12px;
+.avatar-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #060709;
+    margin-right: 20px;
+    object-fit: cover;
+    margin-top: -40px;
+    background: #222;
+}
+
+.profile-text h2 { margin: 0; font-size: 1.4rem; color: #00e59b; }
+.profile-text p { margin: 5px 0 0 0; color: #8892a0; font-size: 0.9rem; }
+
+/* Container & Abstände */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    color: #dae3ea;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #1c2026;
+    margin: 30px 0;
+}
+
+/* Ordner-Kacheln (Folders) */
+.folder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.folder-card {
+    background-color: #12151b;
+    border-radius: 8px;
+    overflow: hidden;
     cursor: pointer;
-    border-radius: 15px;
-    font-size: 0.9em;
-    transition: 0.2s;
+    border: 1px solid #1c2029;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
-.sub-btn:hover, .sub-btn.active {
-    background-color: #007acc;
-    color: #fff;
-    border-color: #007acc;
+.folder-card:hover {
+    transform: translateY(-4px);
+    border-color: #00e59b;
 }
+
+.folder-cover {
+    height: 110px;
+    background-size: cover;
+    background-position: center;
+    background-color: #1a1e26;
+}
+
+.folder-title {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-align: center;
+    color: #c5d1dc;
+}
+
+/* Galerie & Bilderraster */
+.gallery-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.show-all-btn {
+    background: #181c24;
+    color: #00e59b;
+    border: 1px solid #00e59b;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.gallery-item {
+    background: #12151b;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    border: 1px solid #1a1e26;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img { transform: scale(1.04); }
+
+/* Modal & Lightbox */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #12151b; padding: 30px; border-radius: 8px;
+    text-align: center; border: 1px solid #222;
+}
+
+.modal-buttons button {
+    padding: 10px 20px; margin: 10px 5px 0 5px; cursor: pointer;
+    border: none; border-radius: 4px; font-weight: bold;
+}
+.modal-buttons button:first-child { background: #00e59b; color: #000; }
+.modal-buttons button:last-child { background: #e53935; color: #fff; }
+
+.hidden { display: none; }
+
+.lightbox {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95); display: none;
+    justify-content: center; align-items: center; z-index: 999;
+}
+
+.lightbox img { max-width: 90%; max-height: 90%; border-radius: 4px; }
