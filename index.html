@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    <!-- 18+ Abfrage -->
     <div id="age-gate" class="modal-overlay">
         <div class="modal-content">
             <h2>Altersbestätigung (18+)</h2>
@@ -19,19 +20,31 @@
         </div>
     </div>
 
+    <!-- Hauptinhalt -->
     <div id="main-content" class="hidden">
         <header>
             <h1>Galerie</h1>
+            
+            <!-- Haupt-Filter -->
             <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterGallery('all')">Alle</button>
-                <button class="filter-btn" onclick="filterGallery('chara')">Charaktere</button>
-                <button class="filter-btn" onclick="filterGallery('skizzen')">Skizzen</button>
-                <button class="filter-btn" onclick="filterGallery('concepts')">Concepts</button>
+                <button class="filter-btn active" onclick="filterGallery('all', event)">Alle Werke</button>
+                <button class="filter-btn" onclick="filterGallery('chara-all', event)">Alle Charaktere</button>
+                <button class="filter-btn" onclick="filterGallery('drawings', event)">Eigene Zeichnungen</button>
+            </div>
+
+            <!-- Unter-Kategorien für die Charaktere -->
+            <div class="sub-filter-buttons">
+                <button class="sub-btn" onclick="filterGallery('amber', event)">Amber</button>
+                <button class="sub-btn" onclick="filterGallery('violet', event)">Violet</button>
+                <button class="sub-btn" onclick="filterGallery('vanessa', event)">Vanessa</button>
+                <button class="sub-btn" onclick="filterGallery('lena', event)">Lena</button>
             </div>
         </header>
 
+        <!-- Bilderraster -->
         <main class="gallery-grid" id="gallery"></main>
 
+        <!-- Großansicht (Lightbox) -->
         <div id="lightbox" class="lightbox" onclick="closeLightbox()">
             <img id="lightbox-img" src="" alt="Großansicht">
         </div>
