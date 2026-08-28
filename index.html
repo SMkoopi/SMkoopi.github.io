@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Galerie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="age-gate" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Altersbestätigung (18+)</h2>
+            <p>Diese Galerie enthält Inhalte für Erwachsene. Bist du mindestens 18 Jahre alt?</p>
+            <div class="modal-buttons">
+                <button onclick="confirmAge(true)">Ja, ich bin 18+</button>
+                <button onclick="confirmAge(false)">Nein, Verlassen</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <header>
+            <h1>Galerie</h1>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterGallery('all')">Alle</button>
+                <button class="filter-btn" onclick="filterGallery('chara')">Charaktere</button>
+                <button class="filter-btn" onclick="filterGallery('skizzen')">Skizzen</button>
+                <button class="filter-btn" onclick="filterGallery('concepts')">Concepts</button>
+            </div>
+        </header>
+
+        <main class="gallery-grid" id="gallery"></main>
+
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" alt="Großansicht">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
