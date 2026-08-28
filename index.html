@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine Galerie</title>
+    <title>Galerie - Profile</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,31 +20,66 @@
         </div>
     </div>
 
-    <!-- Hauptinhalt -->
+    <!-- Hauptinhalt im DeviantArt-Stil -->
     <div id="main-content" class="hidden">
-        <header>
-            <h1>Galerie</h1>
-            
-            <!-- Haupt-Filter -->
-            <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterGallery('all', event)">Alle Werke</button>
-                <button class="filter-btn" onclick="filterGallery('chara-all', event)">Alle Charaktere</button>
-                <button class="filter-btn" onclick="filterGallery('drawings', event)">Eigene Zeichnungen</button>
+        
+        <!-- Banner & Profilbereich -->
+        <div class="profile-header">
+            <div class="banner-img" id="banner"></div>
+            <div class="profile-info">
+                <img src="bilder/avatar.jpg" alt="Profilbild" class="avatar-img" onerror="this.src='https://via.placeholder.com/100/333/fff?text=Avatar'">
+                <div class="profile-text">
+                    <h2>Mein Portfolio</h2>
+                    <p>Galerie & Original Characters</p>
+                </div>
             </div>
+        </div>
 
-            <!-- Unter-Kategorien für die Charaktere -->
-            <div class="sub-filter-buttons">
-                <button class="sub-btn" onclick="filterGallery('amber', event)">Amber</button>
-                <button class="sub-btn" onclick="filterGallery('violet', event)">Violet</button>
-                <button class="sub-btn" onclick="filterGallery('vanessa', event)">Vanessa</button>
-                <button class="sub-btn" onclick="filterGallery('lena', event)">Lena</button>
-            </div>
-        </header>
+        <div class="container">
+            <!-- Sektion 1: Galerie Ordner -->
+            <section class="gallery-section">
+                <h3 class="section-title">Gallery Folders</h3>
+                <div class="folder-grid">
+                    <div class="folder-card" onclick="selectFolder('chara-all')">
+                        <div class="folder-cover" style="background-image: url('bilder/amber/bild1.jpg');"></div>
+                        <div class="folder-title">All Characters</div>
+                    </div>
+                    <div class="folder-card" onclick="selectFolder('amber')">
+                        <div class="folder-cover" style="background-image: url('bilder/amber/bild1.jpg');"></div>
+                        <div class="folder-title">Amber</div>
+                    </div>
+                    <div class="folder-card" onclick="selectFolder('violet')">
+                        <div class="folder-cover" style="background-image: url('bilder/violet/bild1.jpg');"></div>
+                        <div class="folder-title">Violet</div>
+                    </div>
+                    <div class="folder-card" onclick="selectFolder('vanessa')">
+                        <div class="folder-cover" style="background-image: url('bilder/vanessa/bild1.jpg');"></div>
+                        <div class="folder-title">Vanessa</div>
+                    </div>
+                    <div class="folder-card" onclick="selectFolder('lena')">
+                        <div class="folder-cover" style="background-image: url('bilder/lena/bild1.jpg');"></div>
+                        <div class="folder-title">Lena</div>
+                    </div>
+                    <div class="folder-card" onclick="selectFolder('drawings')">
+                        <div class="folder-cover" style="background-image: url('bilder/drawings/skizze1.jpg');"></div>
+                        <div class="folder-title">Drawings</div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Bilderraster -->
-        <main class="gallery-grid" id="gallery"></main>
+            <hr class="divider">
 
-        <!-- Großansicht (Lightbox) -->
+            <!-- Sektion 2: Bilderraster -->
+            <section class="gallery-section">
+                <div class="gallery-header-flex">
+                    <h3 class="section-title" id="current-folder-name">All Deviants / Werke</h3>
+                    <button class="show-all-btn" onclick="selectFolder('all')">Alle anzeigen</button>
+                </div>
+                <div class="gallery-grid" id="gallery"></div>
+            </section>
+        </div>
+
+        <!-- Lightbox Großansicht -->
         <div id="lightbox" class="lightbox" onclick="closeLightbox()">
             <img id="lightbox-img" src="" alt="Großansicht">
         </div>
