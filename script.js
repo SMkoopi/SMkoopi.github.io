@@ -7,7 +7,7 @@ const images = [
     { src: "bilder/SMkoopi-Seite/violet/bild1.png", category: "violet", isChara: true, title: "Violet 1" },
 
     // Vanessa
-    { src: "C:/Users/smkoo/pictures/SMkoopi-Seite/vanessa/bild1.png", category: "vanessa", isChara: true, title: "Vanessa 1" },
+    { src: "pictures/SMkoopi-Seite/vanessa/bild1.png", category: "vanessa", isChara: true, title: "Vanessa 1" },
 
     // Lena
     { src: "bilder/SMkoopi-Seite/lena/bild1.png", category: "lena", isChara: true, title: "Lena 1" },
