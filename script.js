@@ -1,23 +1,21 @@
-// Deine Bilder-Datenbank
 const images = [
-    // --- AMBER ---
+    // Amber
     { src: "bilder/amber/bild1.jpg", category: "amber", isChara: true, title: "Amber 1" },
     { src: "bilder/amber/bild2.jpg", category: "amber", isChara: true, title: "Amber 2" },
 
-    // --- VIOLET ---
+    // Violet
     { src: "bilder/violet/bild1.jpg", category: "violet", isChara: true, title: "Violet 1" },
 
-    // --- VANESSA ---
+    // Vanessa
     { src: "bilder/vanessa/bild1.jpg", category: "vanessa", isChara: true, title: "Vanessa 1" },
 
-    // --- LENA ---
+    // Lena
     { src: "bilder/lena/bild1.jpg", category: "lena", isChara: true, title: "Lena 1" },
 
-    // --- EIGENE ZEICHNUNGEN ---
-    { src: "bilder/drawings/skizze1.jpg", category: "drawings", isChara: false, title: "Eigene Skizze 1" },
+    // Drawings
+    { src: "bilder/drawings/skizze1.jpg", category: "drawings", isChara: false, title: "Skizze 1" }
 ];
 
-// Age-Gate Logik
 function confirmAge(isAdult) {
     if (isAdult) {
         document.getElementById('age-gate').classList.add('hidden');
@@ -29,7 +27,21 @@ function confirmAge(isAdult) {
     }
 }
 
-// Galerie Rendern
+function selectFolder(folderKey) {
+    const titleMap = {
+        'all': 'All Werke',
+        'chara-all': 'All Characters',
+        'amber': 'Folder: Amber',
+        'violet': 'Folder: Violet',
+        'vanessa': 'Folder: Vanessa',
+        'lena': 'Folder: Lena',
+        'drawings': 'Folder: Drawings'
+    };
+
+    document.getElementById('current-folder-name').innerText = titleMap[folderKey] || 'Gallery';
+    renderGallery(folderKey);
+}
+
 function renderGallery(categoryFilter) {
     const galleryContainer = document.getElementById('gallery');
     galleryContainer.innerHTML = '';
@@ -40,9 +52,9 @@ function renderGallery(categoryFilter) {
         if (categoryFilter === 'all') {
             show = true;
         } else if (categoryFilter === 'chara-all' && imgData.isChara) {
-            show = true; // Zeigt alle Charaktere auf einmal (Amber, Violet, Vanessa, Lena)
+            show = true;
         } else if (imgData.category === categoryFilter) {
-            show = true; // Zeigt exakt die ausgewählte Unterkategorie
+            show = true;
         }
 
         if (show) {
@@ -60,16 +72,6 @@ function renderGallery(categoryFilter) {
     });
 }
 
-// Filter steuern
-function filterGallery(category, evt) {
-    document.querySelectorAll('.filter-btn, .sub-btn').forEach(btn => btn.classList.remove('active'));
-    if (evt && evt.target) {
-        evt.target.classList.add('active');
-    }
-    renderGallery(category);
-}
-
-// Lightbox Logik
 function openLightbox(src) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
