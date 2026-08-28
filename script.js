@@ -1,9 +1,20 @@
-// Hier trägst du deine Bilder ein:
+// Deine Bilder-Datenbank
 const images = [
-    { src: "bilder/bild1.jpg", category: "chara", title: "Charakter 1" },
-    { src: "bilder/bild2.jpg", category: "skizzen", title: "Skizze 1" },
-    { src: "bilder/bild3.jpg", category: "concepts", title: "Concept Art" },
-    // Neue Bilder fügst du einfach hier unten an!
+    // --- AMBER ---
+    { src: "bilder/amber/bild1.jpg", category: "amber", isChara: true, title: "Amber 1" },
+    { src: "bilder/amber/bild2.jpg", category: "amber", isChara: true, title: "Amber 2" },
+
+    // --- VIOLET ---
+    { src: "bilder/violet/bild1.jpg", category: "violet", isChara: true, title: "Violet 1" },
+
+    // --- VANESSA ---
+    { src: "bilder/vanessa/bild1.jpg", category: "vanessa", isChara: true, title: "Vanessa 1" },
+
+    // --- LENA ---
+    { src: "bilder/lena/bild1.jpg", category: "lena", isChara: true, title: "Lena 1" },
+
+    // --- EIGENE ZEICHNUNGEN ---
+    { src: "bilder/drawings/skizze1.jpg", category: "drawings", isChara: false, title: "Eigene Skizze 1" },
 ];
 
 // Age-Gate Logik
@@ -24,7 +35,17 @@ function renderGallery(categoryFilter) {
     galleryContainer.innerHTML = '';
 
     images.forEach(imgData => {
-        if (categoryFilter === 'all' || imgData.category === categoryFilter) {
+        let show = false;
+
+        if (categoryFilter === 'all') {
+            show = true;
+        } else if (categoryFilter === 'chara-all' && imgData.isChara) {
+            show = true; // Zeigt alle Charaktere auf einmal (Amber, Violet, Vanessa, Lena)
+        } else if (imgData.category === categoryFilter) {
+            show = true; // Zeigt exakt die ausgewählte Unterkategorie
+        }
+
+        if (show) {
             const item = document.createElement('div');
             item.className = 'gallery-item';
             item.onclick = () => openLightbox(imgData.src);
@@ -40,9 +61,11 @@ function renderGallery(categoryFilter) {
 }
 
 // Filter steuern
-function filterGallery(category) {
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+function filterGallery(category, evt) {
+    document.querySelectorAll('.filter-btn, .sub-btn').forEach(btn => btn.classList.remove('active'));
+    if (evt && evt.target) {
+        evt.target.classList.add('active');
+    }
     renderGallery(category);
 }
 
